@@ -23,8 +23,6 @@ int		ft_printf(const char *, ...);
 
 /*Retorna o tamanho da string*/
 size_t	ft_strlen_pf(const char *s);
-/*passa string a inteiro*/
-int		ft_atoi_pf(const char *nptr);
 
 /*Put number num file descriptor*/
 void	ft_putnbr_fd_pf(int nb, int fd);
@@ -34,4 +32,8 @@ void	ft_putendl_fd_pf(char *s, int fd);
 void	ft_putstr_fd_pf(char *s, int fd);
 /*escreve um caracter*/
 void	ft_putchar_fd_pf(char c, int fd);
+/*converte de decimal pra hex*/
+void	ft_lowhex_pf(int num);
+/*converte de decimal pra hex*/
+void	ft_uphex_pf(int num);
 #endif

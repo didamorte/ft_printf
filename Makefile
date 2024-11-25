@@ -8,11 +8,13 @@ ARFLAGS	= -rc
 RM		= rm -rf
 
 SRCS	= ft_strlen_pf.c \
-		ft_atoi_pf.c \
 		ft_putchar_fd_pf.c \
 		ft_putendl_fd_pf.c \
 		ft_putnbr_fd_pf.c \
-		ft_putstr_fd_pf.c
+		ft_putstr_fd_pf.c \
+		ft_printf.c \
+		ft_lowhex_pf.c \
+		ft_uphex_pf.c \
 
 #transformacao#
 OBJ = $(SRCS:.c=.o)
