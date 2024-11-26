@@ -12,12 +12,30 @@
 
 #include "libftprintf.h"
 
-void	ft_putnbr_fd_pf(int nb, int fd)
+static int	ft_numcount(int nb)
 {
+	int	c;
+
+	c = 0;
+	if (nb <= 0)
+		c++;
+	while (nb)
+	{
+		nb /= 10;
+		c++;
+	}
+	return (c);
+}
+
+int	ft_putnbr_fd_pf(int nb, int fd)
+{
+	int	count;
+
+	count = 0;
 	if (nb == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
-		return ;
+		return (0);
 	}
 	if (nb < 0)
 	{
@@ -33,4 +51,6 @@ void	ft_putnbr_fd_pf(int nb, int fd)
 	{
 		ft_putchar_fd_pf((nb + '0'), fd);
 	}
+	count = ft_numcount(nb);
+	return (count);
 }

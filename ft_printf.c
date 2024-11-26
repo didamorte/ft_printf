@@ -18,21 +18,21 @@ static int	ft_type(const char format, va_list list)
 
 	count = 0;
 	if (format == 'c')
-		ft_putchar_fd_pf(va_arg(list, int), 1);
+		count += ft_putchar_fd_pf(va_arg(list, int), 1);
 	else if (format == 's')
-		ft_putstr_fd_pf(va_arg(list, char *), 1);
+		count += ft_putstr_fd_pf(va_arg(list, char *), 1);
 	else if (format == 'x')
-		ft_lowhex_pf(va_arg(list, int));
+		count += ft_lowhex_pf(va_arg(list, int));
 	else if (format == 'X')
-		ft_uphex_pf(va_arg(list, int));
+		count += ft_uphex_pf(va_arg(list, int));
 	else if (format == 'd' || format == 'i')
-		ft_putnbr_fd_pf(va_arg(list, int), 1);
+		count += ft_putnbr_fd_pf(va_arg(list, int), 1);
 	else if (format == 'u')
-		ft_putnbr_fd_pf(va_arg(list, unsigned int), 1);
+		count += ft_putnbr_fd_pf(va_arg(list, unsigned int), 1);
 	else if (format == 'p')
 	{
 		ft_putstr_fd_pf("0x", 1);
-		ft_lowhex_pf(va_arg(list, int));
+		count += ft_lowhex_pf(va_arg(list, int));
 	}
 	return (count);
 }
@@ -48,10 +48,11 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			count += ft_type(*(++format), list);
 			format++;
+			count += ft_type(*format, list);
 		}
-		count += write(1, &(*format) , 1);
+		else
+			count += write(1, format, 1);
 		format++;
 	}
 	va_end(list);
@@ -60,5 +61,5 @@ int	ft_printf(const char *format, ...)
 
 int main()
 {
-	ft_printf("Ola %s, tens %d anos", "Diogo", 19);
+	ft_printf("Ola %s, tens %s anos", "Diogo", "bro");
 }

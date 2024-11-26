@@ -72,14 +72,17 @@ static char	*ft_hex(int num)
 	return (hex);
 }
 
-void	ft_lowhex_pf(int num)
+int	ft_lowhex_pf(int num)
 {
 	char	*hex;
+	int		count;
 
 	hex = ft_hex(num);
+	count = ft_strlen_pf(hex);
 	ft_reverse(hex);
 	ft_putstr_fd_pf(hex, 1);
 	free(hex);
+	return (count);
 }
 
 /* int main()

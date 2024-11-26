@@ -12,7 +12,8 @@
 
 #include "libftprintf.h"
 
-void	ft_putchar_fd_pf(char c, int fd)
+int	ft_putchar_fd_pf(char c, int fd)
 {
 	write(fd, &c, 1);
+	return (1);
 }

@@ -25,15 +25,13 @@ int		ft_printf(const char *, ...);
 size_t	ft_strlen_pf(const char *s);
 
 /*Put number num file descriptor*/
-void	ft_putnbr_fd_pf(int nb, int fd);
-/*escreve um \n no final de uma string ou file*/
-void	ft_putendl_fd_pf(char *s, int fd);
+int	ft_putnbr_fd_pf(int nb, int fd);
 /*escreve uma string*/
-void	ft_putstr_fd_pf(char *s, int fd);
+int	ft_putstr_fd_pf(char *s, int fd);
 /*escreve um caracter*/
-void	ft_putchar_fd_pf(char c, int fd);
+int	ft_putchar_fd_pf(char c, int fd);
 /*converte de decimal pra hex*/
-void	ft_lowhex_pf(int num);
+int	ft_lowhex_pf(int num);
 /*converte de decimal pra hex*/
-void	ft_uphex_pf(int num);
+int	ft_uphex_pf(int num);
 #endif
