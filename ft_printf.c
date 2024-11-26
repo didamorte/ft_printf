@@ -31,9 +31,11 @@ static int	ft_type(const char format, va_list list)
 		count += ft_putnbr_fd_pf(va_arg(list, unsigned int), 1);
 	else if (format == 'p')
 	{
-		ft_putstr_fd_pf("0x", 1);
+		count += ft_putstr_fd_pf("0x", 1);
 		count += ft_lowhex_pf(va_arg(list, int));
 	}
+	else if (format == '%')
+		count += ft_putchar_fd_pf('%', 1);
 	return (count);
 }
 
@@ -50,6 +52,7 @@ int	ft_printf(const char *format, ...)
 		{
 			format++;
 			count += ft_type(*format, list);
+			va_arg(list, void *);
 		}
 		else
 			count += write(1, format, 1);
@@ -61,5 +64,9 @@ int	ft_printf(const char *format, ...)
 
 int main()
 {
-	ft_printf("Ola %s, tens %s anos", "Diogo", "bro");
+	int result;
+	int real;
+	real = printf("Ola %s, tens %d anos andas na %x ou %X\n", "Diogo", 19, 42, 42);
+	result = ft_printf("Ola %s, tens %d anos andas na %x ou %X\n", "Diogo", 19, 42, 42);
+	printf("real: %d \nfake: %d", real, result);
 }
