@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hex_pf.c                                        :+:      :+:    :+:   */
+/*   ft_uphex_pf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:05:38 by diogribe          #+#    #+#             */
-/*   Updated: 2024/11/22 18:38:12 by diogribe         ###   ########.fr       */
+/*   Updated: 2024/11/27 18:43:58 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_hexcount(int nb)
 {
@@ -25,11 +25,11 @@ static int	ft_hexcount(int nb)
 	return (c);
 }
 
-static void	ft_reverse(char* str)
+static void	ft_reverse(char *str)
 {
-	int first;
-	int last;
-	char temp;
+	int		first;
+	int		last;
+	char	temp;
 
 	first = 0;
 	last = ft_strlen_pf(str) - 1;
@@ -43,9 +43,9 @@ static void	ft_reverse(char* str)
 	}
 }
 
-static char	*ft_hex(int num)
+static char	*ft_hex(unsigned int num)
 {
-	int	count;
+	int		count;
 	char	*hex;
 	char	*ptr;
 
@@ -53,11 +53,6 @@ static char	*ft_hex(int num)
 	hex = (char *)malloc((count + 1) * sizeof(char));
 	if (!hex)
 		return (NULL);
-	if (num < 0)
-	{
-		ft_putchar_fd_pf('-', 1);
-		num *= -1;
-	}
 	ptr = hex;
 	while (--count)
 	{
@@ -72,13 +67,18 @@ static char	*ft_hex(int num)
 	return (hex);
 }
 
-int	ft_uphex_pf(int num)
+int	ft_uphex_pf(unsigned int num)
 {
 	char	*hex;
 	int		count;
+	int		i;
 
-	hex = ft_hex(num);
+	hex = ft_hex((int)num);
 	count = ft_strlen_pf(hex);
+	i = 8 - count + 1;
+	if ((int)num < 0)
+		while (--i)
+			count += ft_putchar_fd_pf('F', 1);
 	ft_reverse(hex);
 	ft_putstr_fd_pf(hex, 1);
 	free(hex);
