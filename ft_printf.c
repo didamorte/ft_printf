@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 18:31:38 by diogribe          #+#    #+#             */
-/*   Updated: 2024/11/27 18:58:44 by diogribe         ###   ########.fr       */
+/*   Updated: 2024/11/27 19:03:41 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
-int main()
+/* int main()
 {
 	int fake = 0;
 	int real = 0;
@@ -83,4 +83,4 @@ int main()
 	real += printf("mem real: %p, %p, %p, %p\n", (void *)42, (void *)21, (void *)-42, (void *)-21);
 	fake += ft_printf("mem fake: %p, %p, %p, %p\n", (void *)42, (void *)21, -42, (void *)-21);
 	printf("real: %d \nfake: %d", real, fake);
-}
+} */

@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:05:38 by diogribe          #+#    #+#             */
-/*   Updated: 2024/11/27 18:59:54 by diogribe         ###   ########.fr       */
+/*   Updated: 2024/11/27 19:04:48 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,6 @@ static char	*ft_hex(unsigned int num)
 	hex = (char *)malloc((count + 1) * sizeof(char));
 	if (!hex)
 		return (NULL);
-	if (num < 0)
-	{
-		ft_putchar_fd_pf('-', 1);
-		num *= -1;
-	}
 	ptr = hex;
 	while (--count)
 	{
