@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lowhex_pf.c                                     :+:      :+:    :+:   */
+/*   ft_memprint_pf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 17:05:38 by diogribe          #+#    #+#             */
-/*   Updated: 2024/11/27 19:04:48 by diogribe         ###   ########.fr       */
+/*   Created: 2024/12/04 18:51:18 by diogribe          #+#    #+#             */
+/*   Updated: 2024/12/04 18:51:18 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	ft_reverse(char *str)
 	}
 }
 
-static char	*ft_hex(unsigned int num)
+static char	*ft_hex(unsigned long long num)
 {
 	int		count;
 	char	*hex;
@@ -67,7 +67,7 @@ static char	*ft_hex(unsigned int num)
 	return (hex);
 }
 
-int	ft_lowhex_pf(unsigned int num)
+int	ft_memprint_pf(unsigned long long num)
 {
 	char	*hex;
 	int		count;
@@ -75,7 +75,10 @@ int	ft_lowhex_pf(unsigned int num)
 
 	hex = ft_hex(num);
 	count = ft_strlen_pf(hex);
-	i = 8 - count + 1;
+	if (!num)
+	    return (ft_putstr_fd_pf("(nil)", 1));
+	i = 16 - count + 1;
+	count += ft_putstr_fd_pf("0x", 1);
 	if ((int)num < 0)
 		while (--i)
 			count += ft_putchar_fd_pf('f', 1);

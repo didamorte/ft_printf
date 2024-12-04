@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd_pf.c                                  :+:      :+:    :+:   */
+/*   ft_putuns_fd_pf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 18:45:27 by diogribe          #+#    #+#             */
-/*   Updated: 2024/11/27 16:05:53 by diogribe         ###   ########.fr       */
+/*   Created: 2024/12/04 18:49:54 by diogribe          #+#    #+#             */
+/*   Updated: 2024/12/04 18:49:54 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr_fd_pf(char *s, int fd)
+int ft_putuns_fd_pf(unsigned int nb, int fd)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
+	count = 0;
+	if ((int)nb < 0)
 	{
-		ft_putchar_fd_pf(s[i], fd);
-		i++;
+		write(fd, "4294967295", 10);
+		return (10);
 	}
-	return (i);
+	if (nb > 9)
+	{
+		count += ft_putuns_fd_pf(nb / 10, fd);
+		count += ft_putchar_fd_pf((nb % 10 + '0'), fd);
+	}
+	else
+	{
+		count += ft_putchar_fd_pf((nb + '0'), fd);
+	}
+	return (count);
 }
