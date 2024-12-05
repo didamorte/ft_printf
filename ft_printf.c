@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 18:31:38 by diogribe          #+#    #+#             */
-/*   Updated: 2024/11/27 19:03:41 by diogribe         ###   ########.fr       */
+/*   Updated: 2024/12/05 15:30:57 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,28 +52,4 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(list);
 	return (count);
-}
-
-int main()
-{
-	int fake = 0;
-	int real = 0;
-	real += printf("char real: %c, %c, %c\n", 'D', 0, '\0');
-	fake += ft_printf("char fake: %c, %c, %c\n", 'D', 0, '\0');
-
-	real += printf("string real: %s, %s, %p\n", "Diogo", "", NULL);
-	fake += ft_printf("string fake: %s, %s, %p\n", "Diogo", "", NULL);
-
-	real += printf("numero real: %d, %i, %i, %u\n", 42, 21, -42, -21);
-	fake += ft_printf("numero fake: %d, %i, %i, %u\n", 42, 21, -42, -21);
-
-	real += printf("hex real: %x, %x, %x, %x\n", 0, 21, -1234, -21);
-	fake += ft_printf("hex fake: %x, %x, %x, %x\n", 0, 21, -1234, -21);
-	
-	real += printf("HEX real: %X, %X, %X, %X\n", 0, 21, -42, -21);
-	fake += ft_printf("HEX fake: %X, %X, %X, %X\n", 0, 21, -42, -21);
-
-	real += printf("mem real: %p, %p, %p, %p\n", (void *)42, (void *)21, (void *)-42, (void *)-21);
-	fake += ft_printf("mem fake: %p, %p, %p, %p\n", (void *)42, (void *)21, (void *)-42, (void *)-21);
-	printf("real: %d \nfake: %d", real, fake);
 }

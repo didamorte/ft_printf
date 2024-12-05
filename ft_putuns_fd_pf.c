@@ -6,13 +6,13 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:49:54 by diogribe          #+#    #+#             */
-/*   Updated: 2024/12/04 18:49:54 by diogribe         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:14:50 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putuns_fd_pf(unsigned int nb, int fd)
+int	ft_putuns_fd_pf(unsigned int nb, int fd)
 {
 	int	count;
 

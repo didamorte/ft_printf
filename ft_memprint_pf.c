@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:51:18 by diogribe          #+#    #+#             */
-/*   Updated: 2024/12/04 18:51:18 by diogribe         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:15:03 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char	*ft_hex(unsigned long long num)
 	char	*ptr;
 
 	count = ft_hexcount(num) + 1;
-	hex = (char *)malloc((count + 1) * sizeof(char));
+	hex = (char *)malloc(count * sizeof(char));
 	if (!hex)
 		return (NULL);
 	ptr = hex;
@@ -73,10 +73,10 @@ int	ft_memprint_pf(unsigned long long num)
 	int		count;
 	int		i;
 
+	if (!num)
+		return (ft_putstr_fd_pf("(nil)", 1));
 	hex = ft_hex(num);
 	count = ft_strlen_pf(hex);
-	if (!num)
-	    return (ft_putstr_fd_pf("(nil)", 1));
 	i = 16 - count + 1;
 	count += ft_putstr_fd_pf("0x", 1);
 	if ((int)num < 0)
