@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:27:52 by diogribe          #+#    #+#             */
-/*   Updated: 2024/12/05 16:44:43 by diogribe         ###   ########.fr       */
+/*   Updated: 2024/12/18 19:33:37 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 {
 	int real = 0;
 	int fake = 0;
+	char *str = NULL;
 
 	real += printf("Character: %c\n", 'A');
 	fake += ft_printf("Character: %c\n", 'A');
@@ -27,14 +28,14 @@
 	real += printf("Empty string: %s\n", "");
 	fake += ft_printf("Empty string: %s\n", "");
 
-	real += printf("Null string: %p\n", NULL);
-	fake += ft_printf("Null string: %p\n", NULL);
+	real += printf("Null string: %s\n", str);
+	fake += ft_printf("Null string: %s\n", str);
 
 	real += printf("Regular string: %s\n", "Hello, World!");
 	fake += ft_printf("Regular string: %s\n", "Hello, World!");
 
-	real += printf("Null pointer: %p\n", NULL);
-	fake += ft_printf("Null pointer: %p\n", NULL);
+	real += printf("Null pointer: %p\n", &str);
+	fake += ft_printf("Null pointer: %p\n", &str);
 
 	real += printf("Valid pointer: %p\n", &ft_printf);
 	fake += ft_printf("Valid pointer: %p\n", &ft_printf);
@@ -59,6 +60,9 @@
 
 	real += printf("Positive unsigned: %u\n", 42);
 	fake += ft_printf("Positive unsigned: %u\n", 42);
+	
+	real += printf("Negative unsigned: %u\n", -42);
+	fake += ft_printf("Negative unsigned: %u\n", -42);
 
 	real += printf("Maximum unsigned: %u\n", UINT_MAX);
 	fake += ft_printf("Maximum unsigned: %u\n", UINT_MAX);

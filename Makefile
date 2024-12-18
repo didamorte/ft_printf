@@ -7,15 +7,15 @@ AR		= ar
 ARFLAGS	= -rc
 RM		= rm -rf
 
-SRCS	= ft_strlen_pf.c \
-		ft_putchar_fd_pf.c \
-		ft_putnbr_fd_pf.c \
-		ft_putstr_fd_pf.c \
+SRCS	= ft_strlen.c \
+		ft_putchar_fd.c \
+		ft_putnbr_fd.c \
+		ft_putstr_fd.c \
 		ft_printf.c \
-		ft_lowhex_pf.c \
-		ft_uphex_pf.c \
-		ft_putuns_fd_pf.c \
-		ft_memprint_pf.c
+		ft_lowhex.c \
+		ft_uphex.c \
+		ft_putuns_fd.c \
+		ft_memprint.c
 
 #transformacao#
 OBJ = $(SRCS:.c=.o)

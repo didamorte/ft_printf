@@ -22,20 +22,20 @@
 int		ft_printf(const char *format, ...);
 
 /*Retorna o tamanho da string*/
-size_t	ft_strlen_pf(const char *s);
+size_t	ft_strlen(const char *s);
 
 /*escreve um int*/
-int		ft_putnbr_fd_pf(int nb, int fd);
+int		ft_putnbr_fd(int nb, int fd);
 /*escreve um unsined int*/
-int		ft_putuns_fd_pf(unsigned int nb, int fd);
+int		ft_putuns_fd(unsigned int nb, int fd);
 /*escreve uma string*/
-int		ft_putstr_fd_pf(char *s, int fd);
+int		ft_putstr_fd(char *s, int fd);
 /*escreve um caracter*/
-int		ft_putchar_fd_pf(char c, int fd);
+int		ft_putchar_fd(char c, int fd);
 /*converte de decimal pra hex*/
-int		ft_lowhex_pf(unsigned int num);
+int		ft_lowhex(unsigned int num, char *base);
 /*converte de decimal pra hex*/
-int		ft_uphex_pf(unsigned int num);
+int		ft_uphex(unsigned int num, char *base);
 /*printa um espaço na memoria em hex*/
-int		ft_memprint_pf(unsigned long long num);
+int		ft_memprint(unsigned long long num, char *base);
 #endif
