@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:05:38 by diogribe          #+#    #+#             */
-/*   Updated: 2024/12/18 19:25:32 by diogribe         ###   ########.fr       */
+/*   Updated: 2024/12/23 15:03:28 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_uphex(unsigned int num, char *base)
 	hex = (char *)malloc(16 + 1 * sizeof(char));
 	count = 0;
 	i = 0;
-	while (i <= 16 && num > 0)
+	while (i < 16 && num > 0)
 	{
 		temp = num % 16;
 		num /= 16;
