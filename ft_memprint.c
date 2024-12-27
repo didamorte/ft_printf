@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:51:18 by diogribe          #+#    #+#             */
-/*   Updated: 2024/12/23 15:03:44 by diogribe         ###   ########.fr       */
+/*   Updated: 2024/12/27 17:10:26 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void	ft_reverse(char *str)
 	int		last;
 	char	temp;
 
+	if (!str || str == NULL)
+		return ;
 	first = 0;
 	last = ft_strlen(str) - 1;
 	while (first < last)
@@ -37,11 +39,13 @@ int	ft_memprint(unsigned long long num, char *base)
 	int		temp;
 	char	*mem;
 
+	if (num == 0)
+		return(ft_putstr_fd("(nil)", 1));
 	mem = (char *)malloc(16 + 1 * sizeof(char));
 	count = 0;
 	i = 0;
 	count += ft_putstr_fd("0x", 1);
-	while (i < 16 && num > 0)
+	while (i <= 16 && num > 0)
 	{
 		temp = num % 16;
 		num /= 16;

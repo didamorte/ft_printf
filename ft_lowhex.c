@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:05:38 by diogribe          #+#    #+#             */
-/*   Updated: 2024/12/23 15:03:41 by diogribe         ###   ########.fr       */
+/*   Updated: 2024/12/27 16:53:52 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void	ft_reverse(char *str)
 	int		last;
 	char	temp;
 
+	if (!str || str == NULL)
+		return ;
 	first = 0;
 	last = ft_strlen(str) - 1;
 	while (first < last)
@@ -42,7 +44,7 @@ int	ft_lowhex(unsigned int num, char *base)
 	hex = (char *)malloc(16 + 1 * sizeof(char));
 	count = 0;
 	i = 0;
-	while (i < 16 && num > 0)
+	while (i <= 16 && num > 0)
 	{
 		temp = num % 16;
 		num /= 16;

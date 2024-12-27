@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 18:31:38 by diogribe          #+#    #+#             */
-/*   Updated: 2024/12/18 19:25:50 by diogribe         ###   ########.fr       */
+/*   Updated: 2024/12/27 16:57:34 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_printf(const char *format, ...)
 			count += ft_type(*(++format), list);
 		}
 		else
-			count += write(1, format, 1);
+			count += ft_putchar_fd(*format, 1);
 		format++;
 	}
 	va_end(list);
