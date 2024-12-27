@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:51:18 by diogribe          #+#    #+#             */
-/*   Updated: 2024/12/27 17:10:26 by diogribe         ###   ########.fr       */
+/*   Updated: 2024/12/27 17:41:26 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,15 @@ int	ft_memprint(unsigned long long num, char *base)
 	count = 0;
 	i = 0;
 	count += ft_putstr_fd("0x", 1);
-	while (i <= 16 && num > 0)
+	while (i < 16 && num > 0)
 	{
 		temp = num % 16;
 		num /= 16;
 		mem[i] = base[temp];
 		i++;
 	}
-	ft_reverse(mem);
 	mem[i] = '\0';
+	ft_reverse(mem);
 	count += ft_putstr_fd(mem, 1);
 	free(mem);
 	return (count);
